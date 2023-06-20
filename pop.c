@@ -6,19 +6,21 @@
  */
 void pop(stack_t **stack, unsigned int line_number)
 {
-	stack_t *top;
+	stack_t *temp;
 
 	if (*stack == NULL)/*if the stack is empty*/
 	{/*also check if it is %u or %d*/
 		fprintf(stderr, "L%u: can't pop an empty stack\n", line_number);
-		/*_free(*stack);*/
+		_free(*stack);
 		/*clean_stack(stack);*/
 		exit(EXIT_FAILURE);
 	}
-	top = *stack;
-	*stack = (*stack)->next;
-
-		if (*stack != NULL)/*if the stack is not empty*/
-			(*stack)->prev = NULL;
-	free(top);
+	else
+	{
+		temp = (*stack)->next;
+		free(*stack);
+		if (temp)
+			temp->prev = NULL;
+		*stack = temp;
+	}
 }

@@ -7,18 +7,15 @@
 
 void sub(stack_t **stack, unsigned int line_number)
 {
-	stack_t *val = NULL;
-	int sum = 0;
+	int result;
 
-	if (!*stack || !(*stack)->next)
+	if (!stack || !*stack || !((*stack)->next))
 	{
 		fprintf(stderr, "L%d: can't sub, stack too short\n", line_number);
-		_free(*stack);
+		/*_free(*stack);*/
 		exit(EXIT_FAILURE);
 	}
-	val = (*stack)->next;
-	sum = val->n;
-	sum -= (*stack)->n;
+	result = ((*stack)->next->n) - ((*stack)->n);
 	pop(stack, line_number);
-	val->n = sum;
+	(*stack)->n = result;
 }
