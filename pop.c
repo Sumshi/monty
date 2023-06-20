@@ -12,7 +12,7 @@ void pop(stack_t **stack, unsigned int line_number)
 	{/*also check if it is %u or %d*/
 		fprintf(stderr, "L%u: can't pop an empty stack\n", line_number);
 		/*_free(*stack);*/
-		clean_stack(stack);/*comment this part later*/
+		/*clean_stack(stack);*/
 		exit(EXIT_FAILURE);
 	}
 	top = *stack;
