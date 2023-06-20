@@ -19,7 +19,7 @@ void divide(stack_t **stack, unsigned int line_number)
 	if ((*stack)->n == 0)
 	{
 		fprintf(stderr, "L%u: division by zero\n", line_number);
-		_free(stack);
+		_free(*stack);
 		exit(EXIT_FAILURE);
 	}
 
