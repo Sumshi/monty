@@ -3,15 +3,15 @@
 /**
  * get_opc - gets the opcode function
  * @stack: pointer to the stack or queue
- * @arg: the command
- * @val: the value
- * @line_number: the line number
+ * @arg: the command string
+ * @val: the value string
+ * @line_number: the line number in the program
  * Return: 0 on success || 1 if not a digit || -1 on error
  */
 
 int get_opc(stack_t **stack, char *arg, char *val, int line_number)
 {
-	int i = 0;
+	int i = 0;/*to iterate through op array*/
 
 	instruction_t op[] = {
 		{"push", push},
@@ -26,6 +26,7 @@ int get_opc(stack_t **stack, char *arg, char *val, int line_number)
 		{"mul", mul},
 		{"mod", mod},
 		{"pchar", pchar},
+		{"pstr", pstr},
 		{NULL, NULL}
 	};
 

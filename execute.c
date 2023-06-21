@@ -14,13 +14,13 @@ void execute(char *argv)
 	char *token = NULL, *val = NULL;
 	stack_t *stack = NULL;
 
-	cmd.fd = fopen(argv, "r");
-	if (cmd.fd)
+	cmd.fd = fopen(argv, "r");/*opens a file in read mode*/
+	if (cmd.fd != NULL)
 	{
 		while (getline(&cmd.line, &bufsize, cmd.fd) != -1)
 		{
 			c_line++;
-			token = strtok(cmd.line, " \n\t\r");
+			token = strtok(cmd.line, " \n\t\r");/*stores first token*/
 			if (token == NULL)
 			{
 				free(token);
@@ -28,19 +28,19 @@ void execute(char *argv)
 			}
 			else if (*token == '#')
 				continue;
-			val = strtok(NULL, " \n\t\r");
+			val = strtok(NULL, " \n\t\r");/*stores second token*/
 			r = get_opc(&stack, token, val, c_line);
 			if (r == 1) /* get_opt return 1 when the value is not digit */
 				push_error(cmd.fd, cmd.line, stack, c_line); /** print push error*/
 			else if (r == -1) /* get_opt return -1 if not the instruction */
-				instr_error(cmd.fd, cmd.line, stack, token, c_line);
-					/*print instruction error*/
+				instruction_error(cmd.fd, cmd.line, stack, token, c_line);
+			/*print instruction error*/
 		}
 		free(cmd.line);
 		_free(stack);
 		fclose(cmd.fd);
 	}
-	else
+	else/*if the file cannot be opened*/
 	{
 
 		open_error(argv);
