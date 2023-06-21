@@ -1,15 +1,10 @@
 #ifndef _MONTY_H_
 #define _MONTY_H_
-
-#define _GNU_SOURCE
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <stddef.h>
 #include <string.h>
-
 extern int info;
-
 /**
  * struct cmd_s - cmd
  * @fd: file descriptor
@@ -20,10 +15,8 @@ typedef struct cmd_s
 	FILE *fd;
 	char *line;
 } cmd_t;
-
 extern cmd_t cmd;
 extern int value;
-
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
