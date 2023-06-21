@@ -31,7 +31,6 @@ int get_opc(stack_t **stack, char *arg, char *val, int line_number)
 		{"rotr", rotr},
 		{NULL, NULL}
 	};
-
 	while (op[i].opcode)
 	{
 		if (!strcmp(arg, op[i].opcode))
@@ -50,7 +49,6 @@ int get_opc(stack_t **stack, char *arg, char *val, int line_number)
 	}
 	if (!op[i].opcode)
 		return (-1);
-
 	return (0);
 }
 
