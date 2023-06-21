@@ -1,74 +1,116 @@
 #include "monty.h"
-/*0 for stack, 1 for queue */
-int data_format = 0;
 /**
- * stack - sets the format of the data to a stack (LIFO)
- * @stack: double pointer to the head of stack
- * @line_number: the line number
+ * queue_node - adds a node to a stack_t stack in queue_node
+ * @stack: stack head
+ * @n: number of the node
+ * Return: newly created node, if memory allocation fails, the function will
+ * return NULL.
  */
-void stack(stack_t **stack, unsigned int line_number)
+stack_t *queue_node(stack_t **stack, const int n)
 {
-	(void)stack;
-	(void)line_number;
-	data_format = 0;
-}
-/**
- * queue - sets the format of the data to a queue (FIFO)
- * @stack: double pointer to the head of stack
- * @line_number: the line number
- */
-void queue(stack_t **stack, unsigned int line_number)
-{
-	(void)stack;
-	(void)line_number;
-	data_format = 1;
-}
-/**
- * push_t - pushes an element to the stack or queue based on the data format
- * @stack: double pointer to the head of stack or queue
- * @line_number: the line number
- * @value: the value to push
- */
-void push_t(stack_t **stack, unsigned int line_number, int value)
-{
-	stack_t *new_node = malloc(sizeof(stack_t));
-	(void)line_number;
+	stack_t *new = malloc(sizeof(stack_t));
+	stack_t *current = *stack;
 
-	if (!new_node)
+	if (!new)
+	{
+		free(new);
+		return (NULL);
+	}
+	new->n = n;
+
+	if (!*stack)
+	{
+		new->next = NULL;
+		new->prev = NULL;
+		*stack = new;
+		return (new);
+	}
+
+	while (current)
+	{
+		if (!current->next)
+		{
+			new->next = NULL;
+			new->prev = current;
+			current->next = new;
+			break;
+		}
+		current = current->next;
+	}
+
+	return (new);
+}
+
+/**
+ * add_node - adds a node to the start of a stack_t stack
+ * @stack: stack head
+ * @n: number for the new node
+ *
+ * Return: newly created node, if creation fails, the
+ * function will return NULL.
+ */
+stack_t *add_node(stack_t **stack, const int n)
+{
+	stack_t *new = malloc(sizeof(stack_t));
+
+	if (!new)
 	{
 		fprintf(stderr, "Error: malloc failed\n");
-		exit(EXIT_FAILURE);
+		free(new);
+		return (NULL);
 	}
-	new_node->n = value;
-	new_node->prev = NULL;
-	if (data_format == 0)/* Stack (LIFO) behavior */
-	{
-		new_node->next = *stack;
-		if (*stack)
-			(*stack)->prev = new_node;
-		*stack = new_node;
-	}
-	else if (data_format == 1)
-	{/* Queue (FIFO) behavior */
-		stack_t *current = *stack;
+	new->n = n;
 
-		if (!current)
-		{
-			new_node->next = NULL;
-			*stack = new_node;
-		}
-		else
-		{
-			while (current->next)
-				current = current->next;
-			current->next = new_node;
-			new_node->next = NULL;
-			new_node->prev = current;
-		}
-	}
-	else
+	new->next = *stack;
+	new->prev = NULL;
+	if (*stack)
+		(*stack)->prev = new;
+
+	*stack = new;
+
+	return (new);
+}
+
+/**
+ * print_stack - prints the contents of a stack_t stack
+ * @stack: stack head
+ *
+ * Return: number of elements of the list
+ */
+size_t print_stack(const stack_t *stack)
+{
+	size_t c = 0;
+
+	while (stack)
 	{
-		fprintf(stderr, "Error: Invalid data format\n");
-		exit(EXIT_FAILURE);
+		printf("%d\n", stack->n);
+		stack = stack->next;
+		c++;
+	}
+
+	return (c);
+}
+
+/**
+ * free_stack - frees a dlistint_t linked list
+ * @stack: list head
+ *
+ * Return: void
+ */
+void free_stack(stack_t *stack)
+{
+	stack_t *current = stack;
+	stack_t *next;
+
+	if (stack)
+	{
+		next = stack->next;
+		while (current)
+		{
+			free(current);
+			current = next;
+			if (next)
+				next = next->next;
+		}
 	}
 }
