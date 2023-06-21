@@ -1,5 +1,4 @@
 #include "monty.h"
-
 /**
  * _isdigit - checks if it is a digit
  * Return: 0 or 1

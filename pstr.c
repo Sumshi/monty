@@ -1,5 +1,4 @@
 #include "monty.h"
-
 /**
  * pstr - Prints the string starting at the top of the stack,
  *		   followed by a new line
@@ -13,7 +12,7 @@ void pstr(stack_t **stack, unsigned int line_number)
 	stack_t *curr = *stack;
 	(void) line_number;
 
-	while (curr)
+	while (curr)/*stack not empty*/
 	{
 		if (curr->n == 0 || curr->n < 0 || curr->n > 127)
 			break;
@@ -21,6 +20,6 @@ void pstr(stack_t **stack, unsigned int line_number)
 		printf("%c", curr->n);
 		curr = curr->next;
 	}
-
+	/*if stack is empty print new  line*/
 	printf("\n");
 }

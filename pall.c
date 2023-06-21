@@ -13,7 +13,7 @@ void pall(stack_t **stack, unsigned int line_number)
 
 	while (tmp != NULL)/*tmp traverses the stack till end*/
 	{
-		fprintf(stdout, "%d\n", tmp->n);
-		tmp = tmp->next;
+		fprintf(stdout, "%d\n", tmp->n);/*prints the value in stack*/
+		tmp = tmp->next;/*moves to the next element */
 	}
 }

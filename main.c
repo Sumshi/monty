@@ -8,7 +8,7 @@
 int main(int argc, char **argv)
 {
 
-	if (argc != 2)
+	if (argc != 2)/*file name and arguments*/
 	{
 		 /** print usage error*/
 

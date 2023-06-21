@@ -15,13 +15,11 @@ void usage_error(void)
  *@file: file
  * Return: FAILURE
  */
-
 void open_error(char *file)
 {
 	fprintf(stderr, "Error: Can't open file %s\n", file);
 	exit(EXIT_FAILURE);
 }
-
 /**
  * instr_error - Error handler for unknown instructions
  * @fd: file descriptor

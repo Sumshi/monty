@@ -12,7 +12,7 @@ void pchar(stack_t **stack, unsigned int line_number)
 		fprintf(stderr, "L%u: can't pchar, stack empty\n", line_number);
 		exit(EXIT_FAILURE);
 	}
-	if ((*stack)->n >= 0 && (*stack)->n <= 127)/*checks if value is thin ascii*/
+	if ((*stack)->n >= 0 && (*stack)->n <= 127)/*checks if value is in ascii*/
 		printf("%c\n", (*stack)->n);
 	else/*if it is not within valid ascii range*/
 	{

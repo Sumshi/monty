@@ -6,10 +6,10 @@
  */
 void swap(stack_t **stack, unsigned int line_number)
 {
-	stack_t *top = *stack;
-	int temp;
+	stack_t *top = *stack;/*points to top of stack*/
+	int temp;/*holds one of the values*/
 
-/*check if stack is empty or if it contains less than 2 elements*/
+	/*check if stack is empty or if it contains less than 2 elements*/
 	if (top == NULL || top->next == NULL)
 	{
 		fprintf(stderr, "L%u: can't swap, stack too short\n", line_number);
@@ -20,6 +20,6 @@ void swap(stack_t **stack, unsigned int line_number)
 		temp = top->n;/*holds the first element*/
 		top->n = top->next->n;
 		top->next->n = temp;
-/*this is like temp = a, a = b, b = a*/
+		/*this is like temp = a, a = b, b = a*/
 	}
 }

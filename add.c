@@ -6,7 +6,7 @@
  */
 void add(stack_t **stack, unsigned int line_number)
 {
-	stack_t *top = *stack;
+	stack_t *top = *stack;/*points to top element of stack*/
 	int sum;
 
 /*checks if stack is empty or has less than 2 elements*/
@@ -15,9 +15,9 @@ void add(stack_t **stack, unsigned int line_number)
 		fprintf(stderr, "L%u: can't add, stack too short\n", line_number);
 		exit(EXIT_FAILURE);
 	}
-	sum = top->n + top->next->n;
+	sum = top->n + top->next->n;/*adds top and second top element*/
 	top->next->n = sum;
 
-	*stack = top->next;
-	free(top);
+	*stack = top->next;/*updates stack to point to second top element*/
+	free(top);/*frees top which was removed*/
 }
