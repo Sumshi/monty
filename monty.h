@@ -7,7 +7,6 @@
 #include <stddef.h>
 #include <string.h>
 
-extern int info;
 /**
  * struct cmd_s - cmd
  * @fd: file descriptor
