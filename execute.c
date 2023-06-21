@@ -9,7 +9,7 @@ cmd_t cmd = {NULL, NULL};
 
 void execute(char *argv)
 {
-	int c_line = 0, r = 0;
+	int line = 0, r = 0;
 	size_t bufsize = 0;
 	char *token = NULL, *val = NULL;
 	stack_t *stack = NULL;
@@ -19,7 +19,7 @@ void execute(char *argv)
 	{
 		while (getline(&cmd.line, &bufsize, cmd.fd) != -1)
 		{
-			c_line++;
+			line++;
 			token = strtok(cmd.line, " \n\t\r");/*stores first token*/
 			if (token == NULL)
 			{
@@ -29,11 +29,11 @@ void execute(char *argv)
 			else if (*token == '#')
 				continue;
 			val = strtok(NULL, " \n\t\r");/*stores second token*/
-			r = get_opc(&stack, token, val, c_line);
-			if (r == 1) /* get_opt return 1 when the value is not digit */
-				push_error(cmd.fd, cmd.line, stack, c_line); /** print push error*/
-			else if (r == -1) /* get_opt return -1 if not the instruction */
-				instr_error(cmd.fd, cmd.line, stack, token, c_line);
+			r = get_opc(&stack, token, val, line);
+			if (r == 1) /*return 1 when the value is not digit */
+				push_error(cmd.fd, cmd.line, stack, line); /** print push error*/
+			else if (r == -1) /*return -1 if not the instruction */
+				instr_error(cmd.fd, cmd.line, stack, token, line);
 			/*print instruction error*/
 		}
 		free(cmd.line);

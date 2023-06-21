@@ -1,5 +1,5 @@
 #include "monty.h"
-
+#include<stdlib.h>
 /**
  * get_opc - gets the opcode function
  * @stack: pointer to the stack or queue
@@ -33,9 +33,9 @@ int get_opc(stack_t **stack, char *arg, char *val, int line_number)
 	};
 	while (op[i].opcode)
 	{
-		if (!strcmp(arg, op[i].opcode))
+		if (strcmp(arg, op[i].opcode) == 0)
 		{
-			if (!strcmp(arg, "push"))
+			if (strcmp(arg, "push") == 0)
 			{
 				if (_isdigit(val) == 1)
 					value = atoi(val);
