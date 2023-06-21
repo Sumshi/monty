@@ -54,7 +54,9 @@ typedef struct instruction_s
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-
+void stack(stack_t **stack, unsigned int line_number);
+void queue(stack_t **stack, unsigned int line_number);
+void push_t(stack_t **stack, unsigned int line_number, int value);
 
 void execute(char *argv);
 int get_opc(stack_t **stack, char *arg, char *val, int line_number);
