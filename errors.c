@@ -23,7 +23,7 @@ void open_error(char *file)
 }
 
 /**
- * instruction_error - Error handler for unknown instructions
+ * instr_error - Error handler for unknown instructions
  * @fd: file descriptor
  * @line: buffer
  * @stack:  stack or queue
@@ -31,7 +31,7 @@ void open_error(char *file)
  * @val: instruction
  */
 
-void instruction_error(FILE *fd, char *line, stack_t *stack, char *val, int line_n)
+void instr_error(FILE *fd, char *line, stack_t *stack, char *val, int line_n)
 {
 	fprintf(stderr, "L%u: unknown instruction %s\n", line_n, val);
 	fclose(fd);
@@ -49,9 +49,9 @@ void instruction_error(FILE *fd, char *line, stack_t *stack, char *val, int line
 
 void push_error(FILE *fd, char *line, stack_t *stack, int line_number)
 {
-        fprintf(stderr, "L%u: usage: push integer\n", line_number);
-        fclose(fd);
-        free(line);
-        _free(stack);
-        exit(EXIT_FAILURE);
+	fprintf(stderr, "L%u: usage: push integer\n", line_number);
+	fclose(fd);
+	free(line);
+	_free(stack);
+	exit(EXIT_FAILURE);
 }
