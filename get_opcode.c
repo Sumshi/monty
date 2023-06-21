@@ -27,6 +27,7 @@ int get_opc(stack_t **stack, char *arg, char *val, int line_number)
 		{"mod", mod},
 		{"pchar", pchar},
 		{"pstr", pstr},
+		{"rotl", rotl},
 		{NULL, NULL}
 	};
 
