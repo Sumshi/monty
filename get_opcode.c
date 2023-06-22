@@ -1,5 +1,4 @@
 #include "monty.h"
-#include<stdlib.h>
 /**
  * get_opc - retrieves the corresponding opcode function based on the given cmd
  * @stack: pointer to the stack or queue
@@ -8,7 +7,6 @@
  * @line_number: the line number in the program
  * Return: 0 on success || 1 if not a digit || -1 on error
  */
-
 int get_opc(stack_t **stack, char *arg, char *val, int line_number)
 {
 	int i = 0;/*to iterate through op array*/
