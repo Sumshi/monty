@@ -7,15 +7,16 @@
 
 void sub(stack_t **stack, unsigned int line_number)
 {
-	int sub;
+	int result;
 
+	/*checks if stack is empty or has more than 2 elements*/
 	if (stack == NULL || *stack == NULL || (*stack)->next == NULL)
 	{
 		fprintf(stderr, "L%d: can't sub, stack too short\n", line_number);
 		/*_free(*stack);*/
 		exit(EXIT_FAILURE);
 	}
-	sub = ((*stack)->next->n) - ((*stack)->n);
+	result = ((*stack)->next->n) - ((*stack)->n);
 	pop(stack, line_number);
-	(*stack)->n = sub;
+	(*stack)->n = result;/*result is now new top of stack*/
 }
