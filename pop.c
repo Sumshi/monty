@@ -17,8 +17,8 @@ void pop(stack_t **stack, unsigned int line_number)
 	else/*if stack is not empty*/
 	{
 		temp = (*stack)->next;
-		free(*stack);
-		if (temp)
+		free(*stack);/*frees the current top*/
+		if (temp != NULL)
 			temp->prev = NULL;
 		*stack = temp;
 	}
