@@ -56,6 +56,8 @@ void free_stack(stack_t *stack);
 void execute(char *argv);
 int get_opc(stack_t **stack, char *arg, char *val, int line_number);
 
+/*stack operations*/
+stack_t *createNode(int n);
 void push(stack_t **stack, unsigned int line_number);
 void pall(stack_t **stack, unsigned int line_number);
 void pint(stack_t **stack, unsigned int line_number);
@@ -72,15 +74,14 @@ void pstr(stack_t **stack, unsigned int line_number);
 void rotl(stack_t **stack, unsigned int line_number);
 void rotr(stack_t **stack, unsigned int line_number);
 
-int check_push(char *token);
-int get_value(char *token);
-char get_token(char *op, char *token);
+/*memory*/
 void _free(stack_t *stack);
-void clean_stack(stack_t **stack);
+
+/*error handlers*/
 void usage_error(void);
 void open_error(char *file);
 void push_error(FILE *fd, char *line, stack_t *stack, int line_number);
 void instr_error(FILE *fd, char *line, stack_t *stack, char *val, int line_number);
 int _isdigit(char *c);
-stack_t *createNode(int n);
+
 #endif
