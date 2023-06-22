@@ -8,9 +8,7 @@ void f_stack(stack_t **stack, unsigned int line_number)
 {
 	(void)line_number;
 	(void)stack;
-	/* Do nothing as this is already default behavior */
 }
-
 /**
  * f_queue - sets the format of the data to a queue (FIFO).
  * @stack: double pointer to the beginning of the stack/queue
@@ -32,5 +30,6 @@ void f_queue(stack_t **stack, unsigned int line_number)
 	(*stack)->prev = last;
 	last->prev->next = NULL;
 	last->next = (*stack);
+	 (*stack)->prev = NULL;
 	(*stack) = last;
 }
