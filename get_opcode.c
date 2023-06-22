@@ -27,6 +27,7 @@ int get_opc(stack_t **stack, char *arg, char *val, int line_number)
 		{"pstr", pstr},
 		{"rotl", rotl},
 		{"rotr", rotr},
+		{"queue", f_queue}, {"stack", f_stack},
 		{NULL, NULL}
 	};
 	while (op[i].opcode)
