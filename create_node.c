@@ -1,7 +1,5 @@
 #include "monty.h"
-
-int value;
-
+int value;/*holds the value to be pushed to stack*/
 /**
  * createNode - creates a new node
  * @n: the value of the node
@@ -18,9 +16,9 @@ stack_t *createNode(int n)
 		fprintf(stderr, "Error: malloc failed\n");
 		exit(EXIT_FAILURE);
 	}
-	new->n = n;
+	new->n = n;/*sets the value of new node*/
 	new->next = NULL;
 	new->prev = NULL;
 
-	return (new);
+	return (new);/*new node is returned*/
 }
