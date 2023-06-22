@@ -1,7 +1,7 @@
 #include "monty.h"
 #include<stdlib.h>
 /**
- * get_opc - gets the opcode function
+ * get_opc - retrieves the corresponding opcode function based on the given cmd
  * @stack: pointer to the stack or queue
  * @arg: the command string
  * @val: the value string
@@ -39,7 +39,7 @@ int get_opc(stack_t **stack, char *arg, char *val, int line_number)
 			{
 				if (_isdigit(val) == 1)
 					value = atoi(val);
-				else
+				else/*indicates error*/
 					return (1);/** if not digit*/
 			}
 			op[i].f(stack, (unsigned int)line_number);
@@ -47,7 +47,7 @@ int get_opc(stack_t **stack, char *arg, char *val, int line_number)
 		}
 		i++;
 	}
-	if (!op[i].opcode)
-		return (-1);
+	if (!op[i].opcode)/*if opcode was not found*/
+		return (-1);/*indicates error*/
 	return (0);
 }
