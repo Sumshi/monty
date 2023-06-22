@@ -14,6 +14,7 @@ void pchar(stack_t **stack, unsigned int line_number)
 	}
 	if ((*stack)->n >= 0 && (*stack)->n <= 127)/*checks if value is in ascii*/
 		printf("%c\n", (*stack)->n);
+	/*%c bcz ascii value is converted to char*/
 	else/*if it is not within valid ascii range*/
 	{
 		fprintf(stderr, "L%u: can't pchar, value out of range\n", line_number);
