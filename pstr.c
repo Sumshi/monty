@@ -9,16 +9,15 @@
  */
 void pstr(stack_t **stack, unsigned int line_number)
 {
-	stack_t *curr = *stack;
+	stack_t *current = *stack;
 	(void) line_number;
 
-	while (curr)/*stack not empty*/
+	while (current != NULL)/*stack not empty*/
 	{
-		if (curr->n == 0 || curr->n < 0 || curr->n > 127)
+		if (current->n == 0 || current->n < 0 || current->n > 127)
 			break;
-
-		printf("%c", curr->n);
-		curr = curr->next;
+		printf("%c", current->n);/*else part prints the char*/
+		current = current->next;/*goes to the next node*/
 	}
 	/*if stack is empty print new  line*/
 	printf("\n");
