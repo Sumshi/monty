@@ -1,6 +1,6 @@
 #include "monty.h"
 /**
- * stack - sets the format of the data to a stack (LIFO).
+ * f_stack - sets the format of the data to a stack (LIFO).
  * @stack: double pointer to the beginning of the stack/queue
  * @line_number: line number of current opcode
  */
@@ -12,14 +12,14 @@ void f_stack(stack_t **stack, unsigned int line_number)
 }
 
 /**
- * queue - sets the format of the data to a queue (FIFO).
+ * f_queue - sets the format of the data to a queue (FIFO).
  * @stack: double pointer to the beginning of the stack/queue
  * @line_number: line number of current opcode
  */
 void f_queue(stack_t **stack, unsigned int line_number)
 {
 	stack_t *last = *stack;
-	 (void)line_number;
+	(void)line_number;
 
 	if (*stack == NULL || (*stack)->next == NULL)
 		return;
