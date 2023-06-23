@@ -1,5 +1,5 @@
 #include "monty.h"
-inputs_t input = {1};
+inputs_t input = {0};
 /**
  * main - entry point
  * @argc: argument counter

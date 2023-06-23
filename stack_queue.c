@@ -8,7 +8,7 @@ void f_stack(stack_t **stack, unsigned int line_number)
 {
 	(void)line_number;
 	(void)stack;
-	input.flag = 1;
+	input.flag = 0;
 }
 /**
  * f_queue - sets the format of the data to a queue (FIFO).
@@ -19,5 +19,5 @@ void f_queue(stack_t **stack, unsigned int line_number)
 {
 	(void)stack;
 	(void)line_number;
-	input.flag = 0;
+	input.flag = 1;
 }
