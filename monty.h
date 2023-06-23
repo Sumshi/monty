@@ -47,6 +47,15 @@ typedef struct instruction_s
 	char *opcode;
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
+/**
+ * struct input_s - function inputs
+ * flag: stack or queue
+ */
+typedef struct input_s
+{
+	int flag;
+} inputs_t;
+extern inputs_t input;
 
 /*stack and queue operation*/
 void f_stack(stack_t **stack, unsigned int line_number);

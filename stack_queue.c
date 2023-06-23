@@ -8,6 +8,7 @@ void f_stack(stack_t **stack, unsigned int line_number)
 {
 	(void)line_number;
 	(void)stack;
+	input.flag = 0;
 }
 /**
  * f_queue - sets the format of the data to a queue (FIFO).
@@ -16,20 +17,7 @@ void f_stack(stack_t **stack, unsigned int line_number)
  */
 void f_queue(stack_t **stack, unsigned int line_number)
 {
-	stack_t *last = *stack;
+	(void)stack;
 	(void)line_number;
-
-	if (*stack == NULL || (*stack)->next == NULL)
-		return;
-
-	/* Traverse till end of list */
-	while (last->next != NULL)
-		last = last->next;
-
-	/* Swap first and last nodes */
-	(*stack)->prev = last;
-	last->prev->next = NULL;
-	last->next = (*stack);
-	 (*stack)->prev = NULL;
-	(*stack) = last;
+	input.flag = 1;
 }
