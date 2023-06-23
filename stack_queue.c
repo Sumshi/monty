@@ -6,8 +6,8 @@
  */
 void f_stack(stack_t **stack, unsigned int line_number)
 {
-	(void)line_number;
 	(void)stack;
+	(void)line_number;
 	input.flag = 0;
 }
 /**

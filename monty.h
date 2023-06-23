@@ -51,11 +51,11 @@ typedef struct instruction_s
  * struct input_s - function inputs
  * flag: stack or queue
  */
-typedef struct input_s
+typedef struct data_s
 {
 	int flag;
-} inputs_t;
-extern inputs_t input;
+} data_t;
+extern data_t input;
 
 /*stack and queue operation*/
 void f_stack(stack_t **stack, unsigned int line_number);
